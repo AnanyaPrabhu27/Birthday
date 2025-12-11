@@ -11,8 +11,6 @@
   align-items: center;
 
   justify-content: flex-start; /* ✅ stop vertical centering */
-
-  padding-top: 0px;           /* ✅ controlled top spacing */
   overflow: hidden;
 }
 
@@ -21,11 +19,11 @@
 ================================ */
 
 .menu-title {
-  margin-bottom: 24px;         /* ✅ reduce gap */
+  margin-bottom: 18px;         /* ✅ reduce gap */
 
   font-family: "Imperial Script", cursive;
-  font-size: 4rem;             /* slightly smaller = tighter */
-  letter-spacing: 0.18rem;
+  font-size: 2rem;             /* slightly smaller = tighter */
+  letter-spacing: 0.8rem;
   color: #8b5a3c;
 
   text-align: center;
@@ -36,9 +34,9 @@
 ================================ */
 
 .menu-container {
-  width: 90vw;
+  width: 100%;
   max-width: 1200px;
-  height: calc(100vh - 180px); /* ✅ pulls envelopes UP */
+  height: 65vh; /* ✅ pulls envelopes UP */
 
   display: flex;
   flex-wrap: wrap;
@@ -54,8 +52,9 @@
 ================================ */
 
 .envelope {
-  width: calc(45% - 40px);
-  aspect-ratio: 3 / 2;
+  width: 420px;              /* ✅ FIXED SAFE SIZE */
+  max-width: 42vw;
+  min-width: 340px;
 
   text-align: center;
   cursor: pointer;
@@ -87,7 +86,7 @@
   display: block;
   margin-top: 10px;
 
-  font-size: 4rem;
+  font-size: 2rem;
   letter-spacing: 0.14rem;
 
   font-family: "Imperial Script", cursive;
