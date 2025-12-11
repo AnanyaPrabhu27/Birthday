@@ -269,7 +269,7 @@
 }
 
 .letter2-polaroids .polaroid:nth-child(5) {
-  top: 3600px;
+  top: 360px;
   left: 130px;
   width: 150px;
   aspect-ratio: 3 / 4;
@@ -278,11 +278,13 @@
 
 /* CENTER HERO */
 .letter2-polaroids .polaroid:nth-child(6) {
-  top: 140px;
-  left: 240px;
-  width: 330px;
+  top: 160px;
+  left: 20px;
+  width: 450px;
+  height: auto;
+  aspect-ratio: unset; 
   z-index: 5;
-  border-bottom-width: 50px;
+  border-bottom-width: 40px;
 }
 
 .letter2-polaroids .polaroid:nth-child(6) img {
