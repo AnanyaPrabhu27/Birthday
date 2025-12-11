@@ -1,0 +1,536 @@
+/* =======================================================
+   General Letter page wrapper
+======================================================= */
+.letter-page {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* =======================================================
+   LETTER 1 FULLSCREEN SCRAPBOOK PAGE
+======================================================= */
+.letter1-fullscreen {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background-color: #f28a9d;
+  background-image: url("https://www.transparenttextures.com/patterns/fresh-snow.png");
+  background-size: 300px;
+  background-repeat: repeat;
+}
+
+.letter1-right {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =======================================================
+   LETTER 1 POLAROIDS
+======================================================= */
+.polaroid-scatter {
+  position: absolute;
+  left: 4%;
+  top: 8%;
+  width: 70%;
+  height: 100%;
+}
+
+.polaroid {
+  background: white;
+  border: 3px solid #fff;
+  border-bottom: 50px solid #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-scatter .polaroid {
+  position: absolute;
+  animation: floatSoft 6s ease-in-out infinite;
+  transform: rotate(var(--tilt));
+}
+
+.polaroid-scatter .polaroid:nth-child(1){top:-3%;left:2%;width:230px;aspect-ratio:3/4;--tilt:-6deg;}
+.polaroid-scatter .polaroid:nth-child(2){top:28%;left:25%;width:300px;aspect-ratio:3/4;--tilt:5deg;}
+.polaroid-scatter .polaroid:nth-child(3){top:45%;left:2%;width:230px;aspect-ratio:3/4;--tilt:-4deg;}
+.polaroid-scatter .polaroid:nth-child(4){top:-3%;left:55%;width:230px;aspect-ratio:3/4;--tilt:6deg;}
+.polaroid-scatter .polaroid:nth-child(5){top:50%;left:53%;width:260px;aspect-ratio:3/4;--tilt:-8deg;}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0) rotate(var(--tilt)); }
+  50% { transform: translateY(-12px) rotate(calc(var(--tilt) + 2deg)); }
+  100% { transform: translateY(0) rotate(var(--tilt)); }
+}
+
+/* =======================================================
+   BACK BUTTON (shared)
+======================================================= */
+.back-btn {
+  position: absolute;
+  bottom: 70px;
+  padding: 14px 36px;
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  background: #ffdb6f;
+  color: #8b4747;
+
+  border-radius: 14px;
+  border: 2px solid #e2c15e;
+
+  cursor: pointer;
+  z-index: 9999;
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.35),
+    inset 0 0 0 2px rgba(255,255,255,0.6);
+
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  background: #ffffff;
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.28);
+}
+
+.letter1-fullscreen .back-btn {
+  right: 10%;
+}
+
+/* =======================================================
+   LETTER 2 PAGE
+======================================================= */
+.letter2-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Background opacity layer */
+.letter2-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 0;
+}
+
+/* =======================================================
+   LETTER 2 HEADING
+======================================================= */
+.letter2-heading {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* =======================================================
+   SHIMMER + PULSE EFFECT FOR LETTER 2 TITLE
+======================================================= */
+.letter2-title.handwriting {
+  position: relative;
+  overflow: hidden;
+
+  font-family: "Imperial Script", cursive;
+  font-size: 10rem;
+  color: #6b1f3a;
+  margin: 0;
+  white-space: nowrap;
+
+  text-shadow: 0 6px 14px rgba(107, 31, 58, 0.25);
+
+  animation: pulse 2.5s ease-in-out infinite;
+  animation-delay: 2.8s; /* waits until letters finish */
+}
+
+/* Shimmer overlay */
+.letter2-title.handwriting::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.45),
+    transparent 70%
+  );
+
+  animation: shimmer 3.5s infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =======================================================
+   LETTER-BY-LETTER WRITING ANIMATION
+======================================================= */
+.handwriting span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(12px);
+  animation: writeIn 0.6s forwards ease-out;
+}
+
+@keyframes writeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtitle */
+.letter2-subtitle {
+  font-size: 3rem;
+  font-style: italic;
+  color: black;
+  opacity: 0.8;
+  margin-top: -10px;
+}
+
+/* =======================================================
+   LETTER 2 POLAROIDS
+======================================================= */
+.letter2-polaroids {
+  position: relative;
+  width: 1800px;
+  height: 850px;
+  margin-top: 160px; /* space for big heading */
+  z-index: 2;
+}
+
+.letter2-polaroids .polaroid {
+  position: absolute;
+}
+
+/* LEFT COLUMN */
+.letter2-polaroids .polaroid:nth-child(1) {
+  top: 100px;
+  left: 180px;
+  width: 300px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(-10deg);
+}
+
+.letter2-polaroids .polaroid:nth-child(3) {
+  top: -150px;
+  left: 80px;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(5deg);
+}
+
+.letter2-polaroids .polaroid:nth-child(5) {
+  top: 500px;
+  left: 300px;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(10deg);
+}
+
+/* CENTER HERO */
+.letter2-polaroids .polaroid:nth-child(6) {
+  top: 200px;
+  left: 600px;
+  width: 600px;
+  z-index: 5;
+  border-bottom-width: 60px;
+}
+
+.letter2-polaroids .polaroid:nth-child(6) img {
+  object-fit: contain;
+  background: white;
+}
+
+/* RIGHT COLUMN */
+.letter2-polaroids .polaroid:nth-child(2) {
+  top: 80px;
+  right: 150px;
+  width: 300px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(8deg);
+}
+
+.letter2-polaroids .polaroid:nth-child(4) {
+  top: -130px;
+  right: -50px;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(-10deg);
+}
+
+.letter2-polaroids .polaroid:nth-child(7) {
+  top: 450px;
+  right: -30px;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(-10deg);
+}
+
+/* =======================================================
+   BACK BUTTON (LETTER 2)
+======================================================= */
+.letter2-page .back-btn {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #ffe27c;
+  color: #8b4747;
+  padding: 14px 36px;
+
+  font-size: 1.15rem;
+  font-weight: 700;
+
+  border-radius: 14px;
+  border: 2px solid #e2c15e;
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.letter2-page .back-btn:hover {
+  background: #ffffff;
+  transform: translateX(-50%) scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.28);
+}
+
+/* =======================================================
+   LETTER 3 – HEARTFELT LETTER PAGE
+======================================================= */
+.letter3-page {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* soft readability overlay */
+.letter3-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.25);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Letter paper container */
+.letter3-paper {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1050px;
+  width: 95%;
+
+  /* slightly left, elegant */
+  transform: translateX(-300px);
+}
+
+.letter3-paper-img {
+  width: 100%;
+  display: block;
+  background: transparent;
+  filter: drop-shadow(0 22px 40px rgba(0,0,0,0.25));
+}
+
+/* Text ON paper */
+.letter3-content {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 72%;
+  text-align: center;
+
+  font-family: "Italianno", cursive;
+  font-size: 2.6rem;
+  line-height: 3rem;
+  letter-spacing: 0.06rem;
+
+  color: #000;
+
+  /* subtle bold illusion */
+  text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.25);
+
+  pointer-events: none;
+}
+
+.letter3-sign {
+  margin-top: -50px;
+  text-align: right;
+
+  font-family: "Great Vibes", cursive;
+  font-size: 2.6rem;
+}
+
+.letter3-page .back-btn {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10000; /* 👈 ABOVE overlay */
+
+  /* ✅ FORCE solid look */
+  background-color: #ffdb6f !important;
+  opacity: 1 !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* =======================================================
+   LETTER 4 – PINTEREST LOVE LAYOUT
+======================================================= */
+
+.letter4-page {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+
+  background-size: 115%;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* soft overlay */
+.letter4-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.2);
+  z-index: 0;
+}
+
+/* 💌 I love you */
+.letter4-love {
+  position: absolute;
+  right: 25%;
+  font-family: "Bonheur Royale", cursive;
+  font-size: 15rem;
+  color: #5a1f2d;
+  top: 200px;
+  letter-spacing: 0.12rem;
+  text-shadow:
+    0 6px 18px rgba(90, 31, 45, 0.35);
+
+  animation: loveFade 3s ease-in-out infinite;
+}
+
+
+@keyframes lovePulse {
+  0%,100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.05); }
+}
+
+/* shared image style */
+.letter4-img {
+  position: absolute;
+  z-index: 2;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,0.25));
+  pointer-events: none;
+  animation: floatBouquet 6s ease-in-out infinite;
+}
+
+/* 🌻 top right */
+.bouquet-top {
+  bottom: 5%;
+  right: 10%;
+  width: 340px;
+  transform: rotate(-20deg);
+
+  animation-delay: 0s;
+}
+
+/* 🌻 bottom left */
+.bouquet-bottom {
+  bottom: 6%;
+  left: 3%;
+  width: 360px;
+  transform: rotate(-10deg);
+  animation-delay: 2.5s;
+}
+
+@keyframes floatBouquet {
+  0% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+}
+/* back button */
+.letter4-page .back-btn {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  background-color: #ffdb6f;
+  opacity: 1;
+}
+
+
+
+

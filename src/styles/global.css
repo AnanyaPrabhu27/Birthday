@@ -1,0 +1,41 @@
+/* ========= ROOT RESET ========= */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========= BASE STYLES ========= */
+body {
+  font-family: 'Playfair Display', serif;
+  background: #F5EBE6;
+  color: #8B5753;
+  overflow: hidden; /* ✅ PREVENT SCROLL */
+}
+
+/* Soft vignette (visual only, no layout impact) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.05) 70%,
+    transparent 100%
+  );
+}
+
+/* ========= GLOBAL BUTTON ========= */
+.back-btn {
+  background: none;
+  border: none;
+  color: #8B5753;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}

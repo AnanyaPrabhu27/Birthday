@@ -1,0 +1,95 @@
+/* ===============================
+   ENVELOPE MENU PAGE
+================================ */
+
+.menu-page {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start; /* ✅ stop vertical centering */
+
+  padding-top: 0px;           /* ✅ controlled top spacing */
+  overflow: hidden;
+}
+
+/* ===============================
+   TITLE
+================================ */
+
+.menu-title {
+  margin-bottom: 24px;         /* ✅ reduce gap */
+
+  font-family: "Imperial Script", cursive;
+  font-size: 4rem;             /* slightly smaller = tighter */
+  letter-spacing: 0.18rem;
+  color: #8b5a3c;
+
+  text-align: center;
+}
+
+/* ===============================
+   CONTAINER (LOCKED 2×2)
+================================ */
+
+.menu-container {
+  width: 90vw;
+  max-width: 1200px;
+  height: calc(100vh - 180px); /* ✅ pulls envelopes UP */
+
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+  align-content: space-between;
+
+  row-gap: 40px;
+}
+
+/* ===============================
+   ENVELOPE
+================================ */
+
+.envelope {
+  width: calc(45% - 40px);
+  aspect-ratio: 3 / 2;
+
+  text-align: center;
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   IMAGE
+================================ */
+
+.envelope img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  filter: drop-shadow(0 20px 36px rgba(0,0,0,0.35));
+}
+
+/* ===============================
+   LABEL
+================================ */
+
+.envelope span {
+  display: block;
+  margin-top: 10px;
+
+  font-size: 4rem;
+  letter-spacing: 0.14rem;
+
+  font-family: "Imperial Script", cursive;
+  color: #8b5a3c;
+}

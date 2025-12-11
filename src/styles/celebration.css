@@ -1,0 +1,10 @@
+#birthday-cake {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #f07167;
+    overflow: hidden;
+}
+
+/* paste all your original cake CSS here */
