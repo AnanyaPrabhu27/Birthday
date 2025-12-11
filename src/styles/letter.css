@@ -273,8 +273,8 @@
 /* CENTER HERO */
 .letter2-polaroids .polaroid:nth-child(6) {
   top: 200px;
-  left: 600px;
-  width: 400px;
+  left: 300px;
+  width: 350px;
   z-index: 5;
   border-bottom-width: 60px;
 }
