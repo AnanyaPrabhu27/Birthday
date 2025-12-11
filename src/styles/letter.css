@@ -39,15 +39,15 @@
   position: absolute;
   left: 4%;
   top: 8%;
-  width: 70%;
+  width: 60%;
   height: 100%;
 }
 
 .polaroid {
   background: white;
   border: 3px solid #fff;
-  border-bottom: 50px solid #fff;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  border-bottom: 36px solid #fff;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
   overflow: hidden;
   cursor: pointer;
 }
@@ -64,11 +64,11 @@
   transform: rotate(var(--tilt));
 }
 
-.polaroid-scatter .polaroid:nth-child(1){top:-3%;left:2%;width:230px;aspect-ratio:3/4;--tilt:-6deg;}
-.polaroid-scatter .polaroid:nth-child(2){top:28%;left:25%;width:300px;aspect-ratio:3/4;--tilt:5deg;}
-.polaroid-scatter .polaroid:nth-child(3){top:45%;left:2%;width:230px;aspect-ratio:3/4;--tilt:-4deg;}
-.polaroid-scatter .polaroid:nth-child(4){top:-3%;left:55%;width:230px;aspect-ratio:3/4;--tilt:6deg;}
-.polaroid-scatter .polaroid:nth-child(5){top:50%;left:53%;width:260px;aspect-ratio:3/4;--tilt:-8deg;}
+.polaroid-scatter .polaroid:nth-child(1){top:-3%;left:2%;width:200px;aspect-ratio:3/4;--tilt:-6deg;}
+.polaroid-scatter .polaroid:nth-child(2){top:28%;left:25%;width:250px;aspect-ratio:3/4;--tilt:5deg;}
+.polaroid-scatter .polaroid:nth-child(3){top:45%;left:2%;width:200px;aspect-ratio:3/4;--tilt:-4deg;}
+.polaroid-scatter .polaroid:nth-child(4){top:-3%;left:55%;width:200px;aspect-ratio:3/4;--tilt:6deg;}
+.polaroid-scatter .polaroid:nth-child(5){top:50%;left:53%;width:220px;aspect-ratio:3/4;--tilt:-8deg;}
 
 @keyframes floatSoft {
   0% { transform: translateY(0) rotate(var(--tilt)); }
